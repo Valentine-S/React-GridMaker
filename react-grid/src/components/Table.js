@@ -23,11 +23,19 @@ class Table extends Component {
         return {numCols: state.numCols + 1}
     });
   }
-
+  
   removeColumn = () => {
     this.setState(state => {
       if(state.numCols>0){
         return {numCols: state.numCols - 1}
+      }
+    });
+  }
+  
+  removeRow = () => {
+    this.setState(state => {
+      if(state.numRows > 0){
+        return {numRows: state.numRows - 1}
       }
     });
   }
@@ -51,7 +59,8 @@ class Table extends Component {
       <div>
         <button onClick={this.addRow}>Add Row</button>
         <button onClick={this.addColumn}>Add Column</button>
-        <button onClick={this.removeColumn}>Remove Col</button>      
+        <button onClick={this.removeColumn}>Remove Column</button>      
+        <button onClick={this.removeRow}>Remove Row</button>    
         <select onChange={this.handleColorChange}>
           <option value="red">red</option>
           <option value="blue">blue</option>
