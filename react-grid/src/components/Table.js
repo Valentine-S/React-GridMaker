@@ -64,6 +64,19 @@ class Table extends Component {
       }
     });
   }
+  clearAll = () => {
+    NodeList.prototype.forEach = Array.prototype.forEach
+    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes; 
+
+    table.forEach(row => {
+      for(let i = 0; i < this.state.numCols; i++) {
+        let color = row.childNodes[i].style.backgroundColor
+        if(color !== "") {
+          row.childNodes[i].style.backgroundColor = "white"
+        }
+      }
+    });
+  }
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
   }
@@ -87,6 +100,7 @@ class Table extends Component {
         <button onClick={this.removeRow}>Remove Row</button>    
         <button onClick={this.fillAll}>Fill All</button>    
         <button onClick={this.fillUncolored}> Fill Uncolored </button> 
+        <button onClick={this.clearAll}> Clear All</button> 
         <select onChange={this.handleColorChange}>
           <option value="red">red</option>
           <option value="blue">blue</option>
