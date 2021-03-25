@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom'; 
+import ReactDOM from 'react-dom';
 import TableRow from "./TableRow";
 
 class Table extends Component {
@@ -8,77 +8,77 @@ class Table extends Component {
     this.state = {
       numRows: 1,
       numCols: 1,
-      selectedColor: "red", 
+      selectedColor: "red",
     }
-    this.tableRef = React.createRef(); 
+    this.tableRef = React.createRef();
   }
 
   addRow = () => {
     this.setState(state => {
-        return {numRows: state.numRows + 1}
+      return { numRows: state.numRows + 1 }
     });
   }
 
   addColumn = () => {
     this.setState(state => {
-        return {numCols: state.numCols + 1}
+      return { numCols: state.numCols + 1 }
     });
   }
-  
+
   removeColumn = () => {
     this.setState(state => {
-      if(state.numCols>0){
-        return {numCols: state.numCols - 1}
+      if (state.numCols > 0) {
+        return { numCols: state.numCols - 1 }
       }
     });
   }
-  
+
   removeRow = () => {
     this.setState(state => {
-      if(state.numRows > 0){
-        return {numRows: state.numRows - 1}
+      if (state.numRows > 0) {
+        return { numRows: state.numRows - 1 }
       }
     });
   }
 
   fillAll = () => {
     NodeList.prototype.forEach = Array.prototype.forEach
-    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes; 
+    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes;
 
     table.forEach(row => {
-      for(let i = 0; i < this.state.numCols; i++) {
-        row.childNodes[i].style.backgroundColor = this.state.selectedColor; 
+      for (let i = 0; i < this.state.numCols; i++) {
+        row.childNodes[i].style.backgroundColor = this.state.selectedColor;
       }
     });
   }
-  fillUncolored= () => {
+  fillUncolored = () => {
     NodeList.prototype.forEach = Array.prototype.forEach
-    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes; 
+    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes;
 
     table.forEach(row => {
-      for(let i = 0; i < this.state.numCols; i++) {
+      for (let i = 0; i < this.state.numCols; i++) {
         let color = row.childNodes[i].style.backgroundColor
-        if(color === "") {
-          row.childNodes[i].style.backgroundColor = this.state.selectedColor; 
+        if (color === "") {
+          row.childNodes[i].style.backgroundColor = this.state.selectedColor;
         }
       }
     });
   }
   clearAll = () => {
     NodeList.prototype.forEach = Array.prototype.forEach
-    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes; 
+    const table = ReactDOM.findDOMNode(this.tableRef.current).childNodes;
 
     table.forEach(row => {
-      for(let i = 0; i < this.state.numCols; i++) {
+      for (let i = 0; i < this.state.numCols; i++) {
         let color = row.childNodes[i].style.backgroundColor
-        if(color !== "") {
+        if (color !== "") {
           row.childNodes[i].style.backgroundColor = "white"
         }
       }
     });
   }
   handleColorChange = (event) => {
-    this.setState({selectedColor: event.target.value});
+    this.setState({ selectedColor: event.target.value });
   }
 
   handleApplyColor = (event) => {
@@ -89,22 +89,23 @@ class Table extends Component {
     let rows = [];
 
     for (let i = 0; i < this.state.numRows; i++) {
-      rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} color={this.state.color}  />);
+      rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} color={this.state.color} />);
     }
 
     return (
       <div>
         <button onClick={this.addRow}>Add Row</button>
         <button onClick={this.addColumn}>Add Column</button>
-        <button onClick={this.removeColumn}>Remove Column</button>      
-        <button onClick={this.removeRow}>Remove Row</button>    
-        <button onClick={this.fillAll}>Fill All</button>    
-        <button onClick={this.fillUncolored}> Fill Uncolored </button> 
-        <button onClick={this.clearAll}> Clear All</button> 
+        <button onClick={this.removeColumn}>Remove Column</button>
+        <button onClick={this.removeRow}>Remove Row</button>
+        <button onClick={this.fillAll}>Fill All</button>
+        <button onClick={this.fillUncolored}> Fill Uncolored </button>
+        <button onClick={this.clearAll}> Clear All</button>
         <select onChange={this.handleColorChange}>
           <option value="red">red</option>
           <option value="blue">blue</option>
           <option value="yellow">yellow</option>
+          <option value="green">green</option>
         </select>
         <table ref={this.tableRef}>
           {rows}
