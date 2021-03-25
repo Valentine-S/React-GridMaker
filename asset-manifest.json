@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React-GridMaker/static/css/main.0dd8d3ad.chunk.css",
+    "main.js": "/React-GridMaker/static/js/main.e0e56c20.chunk.js",
+    "main.js.map": "/React-GridMaker/static/js/main.e0e56c20.chunk.js.map",
+    "runtime-main.js": "/React-GridMaker/static/js/runtime-main.f19fbeab.js",
+    "runtime-main.js.map": "/React-GridMaker/static/js/runtime-main.f19fbeab.js.map",
+    "static/js/2.888178ec.chunk.js": "/React-GridMaker/static/js/2.888178ec.chunk.js",
+    "static/js/2.888178ec.chunk.js.map": "/React-GridMaker/static/js/2.888178ec.chunk.js.map",
+    "static/js/3.a8b5bea8.chunk.js": "/React-GridMaker/static/js/3.a8b5bea8.chunk.js",
+    "static/js/3.a8b5bea8.chunk.js.map": "/React-GridMaker/static/js/3.a8b5bea8.chunk.js.map",
+    "index.html": "/React-GridMaker/index.html",
+    "static/css/main.0dd8d3ad.chunk.css.map": "/React-GridMaker/static/css/main.0dd8d3ad.chunk.css.map",
+    "static/js/2.888178ec.chunk.js.LICENSE.txt": "/React-GridMaker/static/js/2.888178ec.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f19fbeab.js",
+    "static/js/2.888178ec.chunk.js",
+    "static/css/main.0dd8d3ad.chunk.css",
+    "static/js/main.e0e56c20.chunk.js"
+  ]
+}
